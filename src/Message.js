@@ -21,10 +21,26 @@ const  Message= forwardRef(({message, username}, ref ) => {
            </div>
                 );
             }
-            else
+            else if(message.username==='')
             {
+              const username='Unknown';
                 return(
                     <div ref={ref} className="message">
+                    <Card className="message__guestCard">
+                 <CardContent>
+                   <Typography color="white" variant="h5"component="h2">
+                        {username}:  {message.message}
+                   </Typography>
+                 </CardContent>
+               </Card> 
+               </div>
+                    );
+            }
+            else 
+            {
+
+              return(
+                <div ref={ref} className="message">
                     <Card className="message__guestCard">
                  <CardContent>
                    <Typography color="white" variant="h5"component="h2">
@@ -33,7 +49,8 @@ const  Message= forwardRef(({message, username}, ref ) => {
                  </CardContent>
                </Card> 
                </div>
-                    );
+
+              );
             }
 
 })
